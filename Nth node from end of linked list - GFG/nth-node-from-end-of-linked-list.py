@@ -24,11 +24,9 @@ def getNthFromLast(head,n):
         temp = temp.next
     
     k = l-n
-    
-    
+
     if n > l:
         return -1
-    
     
     while k>0:
         head = head.next
