@@ -1,6 +1,28 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        nums.sort()
+        vote = 0 
+        candidate = -1
         n = len(nums)
-        return nums[n//2]
+        
+        for i in range(n):
+            if vote == 0:
+                candidate = nums[i]
+                vote = 1
+                
+            elif nums[i] == candidate:
+                vote += 1
+            else:
+                vote -= 1
+            
+        count = 0
+        
+        for i in range(n):
+            if nums[i] == candidate:
+                count +=1
+                
+        if count > n //2:
+            return candidate
+        
+        else:
+            return -1
         
